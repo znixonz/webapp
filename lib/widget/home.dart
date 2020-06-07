@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_google_maps/flutter_google_maps.dart';
 import 'left_panel/leftpanel.dart';
 import 'middle_panel/middlepanel.dart';
 import 'right_panel/rightpanel.dart';
@@ -24,14 +23,7 @@ class _HomePageState extends State<HomePage> {
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // Left Panel
-              LeftPanel(),
-              // Middle Panel
-              MiddlePanel(),
-              // Right Panel
-              RightPanel()
-            ],
+            children: <Widget>[LeftPanel(), MiddlePanel(), RightPanel()],
           ),
         ),
       ),

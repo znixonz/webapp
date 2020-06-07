@@ -7,6 +7,7 @@ class MiddlePanel extends StatefulWidget {
 
 class _MiddlePanelState extends State<MiddlePanel> {
   String dropdownvalue = 'items1';
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -49,19 +50,15 @@ class _MiddlePanelState extends State<MiddlePanel> {
             margin: EdgeInsets.only(left: 20, right: 20),
             child: ListView(
               children: <Widget>[
-                ListTile(
-                  title: Row(children: <Widget>[
-                    Expanded(
-                        child: Row(children: [
-                      Text("Name"),
-                      Icon(Icons.arrow_downward)
-                    ])),
-                    Expanded(child: Text("Tags")),
-                    Expanded(child: Text("License Plate")),
-                    Expanded(child: Text("Modal")),
-                    Expanded(child: Text("Type")),
-                    Expanded(child: Text("Deport"))
-                  ]),
+                VehicleListTile(
+                  icon: Icons.arrow_downward,
+                  color: Colors.transparent,
+                  name: "Name",
+                  tags: "Tags",
+                  plate: "License Plate",
+                  modal: "Modal",
+                  type: "Type",
+                  deport: "Deport",
                 ),
                 ListTile(
                   title: Row(children: <Widget>[
@@ -87,45 +84,69 @@ class _MiddlePanelState extends State<MiddlePanel> {
                     ))
                   ]),
                 ),
-                ListTile(
-                  title: Row(children: <Widget>[
-                    Expanded(
-                        child: Row(children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.greenAccent,
-                        radius: 10,
-                      ),
-                      SizedBox(width: 10),
-                      Text("Man Truck"),
-                    ])),
-                    Expanded(child: Text("—")),
-                    Expanded(child: Text("D02844")),
-                    Expanded(child: Text("MAN TGA 33480")),
-                    Expanded(child: Text("Truck")),
-                    Expanded(child: Text("—"))
-                  ]),
+                VehicleListTile(
+                  icon: null,
+                  color: Colors.green,
+                  name: "Man Truck",
+                  tags: "—",
+                  plate: "D02844",
+                  modal: "MAN TGA 33480",
+                  type: "Truck",
+                  deport: "—",
                 ),
-                ListTile(
-                  title: Row(children: <Widget>[
-                    Expanded(
-                        child: Row(children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.blueGrey,
-                        radius: 10,
-                      ),
-                      SizedBox(width: 10),
-                      Text("Volvasgen "),
-                    ])),
-                    Expanded(child: Text("—")),
-                    Expanded(child: Text("TG654FA")),
-                    Expanded(child: Text("A21832")),
-                    Expanded(child: Text("Truck")),
-                    Expanded(child: Text("—"))
-                  ]),
-                ),
+                VehicleListTile(
+                  icon: null,
+                  color: Colors.yellow,
+                  name: "volkswagen",
+                  tags: "—",
+                  plate: "TG654FA",
+                  modal: "A21832",
+                  type: "Truck",
+                  deport: "—",
+                )
               ],
             ),
           ),
         ]));
+  }
+}
+
+class VehicleListTile extends StatelessWidget {
+  final String name, tags, plate, modal, type, deport;
+  final Color color;
+  final IconData icon;
+  const VehicleListTile({
+    this.icon,
+    this.color,
+    this.name,
+    this.tags,
+    this.plate,
+    this.modal,
+    this.type,
+    this.deport,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Row(children: <Widget>[
+        Expanded(
+            child: Row(children: [
+          CircleAvatar(
+            backgroundColor: color,
+            radius: 10,
+          ),
+          SizedBox(width: 10),
+          Text(name),
+          Icon(icon),
+        ])),
+        Expanded(child: Text(tags)),
+        Expanded(child: Text(plate)),
+        Expanded(child: Text(modal)),
+        Expanded(child: Text(type)),
+        Expanded(child: Text(deport))
+      ]),
+    );
   }
 }
