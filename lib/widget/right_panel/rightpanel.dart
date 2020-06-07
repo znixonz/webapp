@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_google_maps/flutter_google_maps.dart';
+import 'package:webapp/widget/middle_panel/middlepanel.dart';
 
 class RightPanel extends StatefulWidget {
   @override
@@ -60,89 +61,18 @@ class _RightPanelState extends State<RightPanel> {
                         width: 200,
                         child: Column(
                           children: [
-                            Container(
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "Name",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("KAMAZ")
-                                  ],
-                                )),
-                            Container(
-                                margin: EdgeInsets.only(top: 5),
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "License Plate ",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("197TYS")
-                                  ],
-                                )),
-                            Container(
-                                margin: EdgeInsets.only(top: 5),
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "Status",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("StandStill")
-                                  ],
-                                )),
-                            Container(
-                                margin: EdgeInsets.only(top: 5),
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "Fuel ",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("—")
-                                  ],
-                                )),
-                            Container(
-                                margin: EdgeInsets.only(top: 5),
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "Mileage ",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("51313.70km")
-                                  ],
-                                )),
-                            Container(
-                                margin: EdgeInsets.only(top: 5),
-                                width: 170,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(height: 5),
-                                    Text(
-                                      "Insurance ",
-                                      style: TextStyle(fontSize: 10),
-                                    ),
-                                    Text("—")
-                                  ],
-                                )),
+                            VehicleDetails(
+                              title: "Name",
+                              subtitle: "KAMAZ",
+                            ),
+                            VehicleDetails(
+                                title: "License Plate", subtitle: "197TYS"),
+                            VehicleDetails(
+                                title: "Status", subtitle: "StandStill"),
+                            VehicleDetails(title: "Fuel", subtitle: "—"),
+                            VehicleDetails(
+                                title: "Mileage", subtitle: "51313.70km"),
+                            VehicleDetails(title: "Insurance", subtitle: "—"),
                           ],
                         ))
                   ],
@@ -184,35 +114,11 @@ class _RightPanelState extends State<RightPanel> {
                             width: 200,
                             child: Column(
                               children: [
-                                Container(
-                                    width: 170,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 5),
-                                        Text(
-                                          "Name",
-                                          style: TextStyle(fontSize: 10),
-                                        ),
-                                        Text("KAMAZ")
-                                      ],
-                                    )),
-                                Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    width: 170,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 5),
-                                        Text(
-                                          "License Plate ",
-                                          style: TextStyle(fontSize: 10),
-                                        ),
-                                        Text("197TYS")
-                                      ],
-                                    )),
+                                VehicleDetails(
+                                    title: "Driver",
+                                    subtitle: "Rahul Adenauer"),
+                                VehicleDetails(
+                                    title: "Phone", subtitle: "010101")
                               ],
                             ))
                       ],
@@ -221,6 +127,33 @@ class _RightPanelState extends State<RightPanel> {
                 ))
               ],
             )
+          ],
+        ));
+  }
+}
+
+class VehicleDetails extends StatelessWidget {
+  final String title, subtitle;
+
+  const VehicleDetails({
+    this.title,
+    this.subtitle,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 170,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 5),
+            Text(
+              title,
+              style: TextStyle(fontSize: 10),
+            ),
+            Text(subtitle)
           ],
         ));
   }
