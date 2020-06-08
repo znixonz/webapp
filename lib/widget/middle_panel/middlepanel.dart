@@ -21,7 +21,7 @@ class _MiddlePanelState extends State<MiddlePanel> {
                 Container(
                   child: Row(children: <Widget>[
                     Container(
-                      height: 50,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       child: Center(child: Text("Group By:")),
                     ),
                     SizedBox(width: 20),
@@ -46,7 +46,7 @@ class _MiddlePanelState extends State<MiddlePanel> {
             ),
           ),
           Container(
-            height: 500,
+            height: MediaQuery.of(context).size.height * 0.65,
             margin: EdgeInsets.only(left: 20, right: 20),
             child: ListView(
               children: <Widget>[

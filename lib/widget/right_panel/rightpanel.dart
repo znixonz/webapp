@@ -17,8 +17,9 @@ class _RightPanelState extends State<RightPanel> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                height: 300,
-                width: 300,
+                // height: 300,
+                height: MediaQuery.of(context).size.height * 0.35,
+                //width: MediaQuery.of(context).size.width * 0.2,
                 child: GoogleMap(
                   key: _key,
                   initialZoom: 12,
@@ -35,13 +36,13 @@ class _RightPanelState extends State<RightPanel> {
                         padding: EdgeInsets.only(left: 15),
                         child: Column(children: [
                           Image(
-                            height: 100,
-                            width: 100,
+                            height: MediaQuery.of(context).size.height * 0.125,
+                            width: 110,
                             image: NetworkImage(
                                 'https://c8.alamy.com/comp/P6W7NW/blue-mercedes-benz-actros-tank-truck-of-kuljetusliike-markus-hanninen-oy-hauls-load-along-highway-on-sunny-day-of-summer-salo-finland-july-1-2018-P6W7NW.jpg'),
                           ),
                           Container(
-                              height: 150,
+                              height: 100,
                               width: 100,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,8 +58,10 @@ class _RightPanelState extends State<RightPanel> {
                         ]),
                       ),
                       Container(
-                          height: 250,
-                          width: 200,
+                          //height: 250,
+                          height: MediaQuery.of(context).size.height * 0.26,
+                          //width: 200,
+                          width: MediaQuery.of(context).size.height * 0.22,
                           child: Column(
                             children: [
                               VehicleDetails(
